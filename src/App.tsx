@@ -12,13 +12,13 @@ function App() {
           WEB3 UTILS
         </div>
         <div className="flex flex-1 flex-row justify-end items-center">
-          <ModeToggle />
+          <ModeToggle/>
         </div>
       </div>
       <Routes>
         <Route path="/" element={<Home/>}/>
       </Routes>
-      <Toaster />
+      <Toaster/>
     </ThemeProvider>
   )
 }
