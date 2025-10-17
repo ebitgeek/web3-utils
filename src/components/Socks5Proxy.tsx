@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { Button } from "@/components/ui/button.tsx";
 import { QRCodeSVG } from "qrcode.react";
 import { useSocks5ProxyStore } from "@/store/useSocks5ProxyStore.ts";
+import { toast } from "sonner";
 
 export default function Socks5Proxy() {
   // const [ip, setIp] = useState<string>("");
@@ -58,6 +59,14 @@ export default function Socks5Proxy() {
   }
 
 
+  const handleCopyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success(`${text} Copied!`);
+    } catch (e) {
+      console.error(e);
+    }
+  }
   return (
     <>
       <Card className="w-full">
@@ -112,7 +121,12 @@ export default function Socks5Proxy() {
             </div>
             <div className="grid gap-2">
               <Label>代理链接</Label>
-              <Textarea readOnly={true} value={proxyUrl}/>
+              <div className="grid w-full items-center gap-2">
+                <Textarea readOnly={true} value={proxyUrl}/>
+                <Button type="submit" variant="outline" onClick={async () => await handleCopyToClipboard(proxyUrl)}>
+                  拷贝至剪贴板
+                </Button>
+              </div>
             </div>
             <div className="grid gap-2">
               <Label>小火箭备注</Label>
