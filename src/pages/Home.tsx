@@ -1,7 +1,6 @@
 import Google2FAToken from "@/components/Google2FAToken.tsx";
 import QrcodeText from "@/components/QrcodeText.tsx";
 import Socks5Proxy from "@/components/Socks5Proxy.tsx";
-import ShortcutCommandShare from "@/components/ShortcutCommandShare.tsx";
 import StickyNote from "@/components/StickyNote.tsx";
 
 
@@ -15,8 +14,9 @@ export default function Home() {
         </div>
         <Google2FAToken/>
         <QrcodeText/>
-        <ShortcutCommandShare/>
-        <StickyNote/>
+        <div className="col-span-2 h-full w-full flex">
+          <StickyNote/>
+        </div>
       </div>
     </>
   );
