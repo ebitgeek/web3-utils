@@ -130,7 +130,10 @@ export default function Socks5Proxy() {
             </div>
             <div className="grid gap-2">
               <Label>小火箭备注</Label>
-              <Textarea value={shadowrocketRemark} onChange={(e) => setShadowrocketRemark(e.target.value)}/>
+              <Textarea
+                placeholder="请输入备注信息..."
+                value={shadowrocketRemark}
+                onChange={(e) => setShadowrocketRemark(e.target.value)}/>
             </div>
             <div className="grid gap-2">
               <Label>小火箭链接</Label>
